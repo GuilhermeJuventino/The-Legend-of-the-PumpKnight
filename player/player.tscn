@@ -64,3 +64,6 @@ shape = SubResource("CapsuleShape2D_quihv")
 sprite_frames = SubResource("SpriteFrames_8y6va")
 animation = &"Idle"
 autoplay = "Idle"
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+one_shot = true

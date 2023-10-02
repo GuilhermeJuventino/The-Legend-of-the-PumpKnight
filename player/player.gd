@@ -2,37 +2,66 @@ extends CharacterBody2D
 
 
 const SPEED = 130.0
-const JUMP_VELOCITY = -200.0
+const JUMP_FORCE = -250.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var is_jumping: bool = false
 
 @onready var animation: AnimatedSprite2D = $Animation
+@onready var coyote_timer: Timer = $CoyoteTimer
 
 
 func _physics_process(delta):
-	# Add the gravity.
-	if not is_on_floor():
-		velocity.y += gravity * delta
-
-	# Handle Jump.
-	if Input.is_action_just_pressed("Jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+	handle_gravity(delta)
+	handle_jump()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("Left", "Right")
-	if direction:
+	
+	handle_movement(direction)
+	
+	handle_animations()
+	
+	var was_on_floor = is_on_floor()
+	move_and_slide()
+	
+	# Starting coyote timer after the player just left a ledge
+	var just_left_ledge = was_on_floor and !is_on_floor() and velocity.y >= 0
+	if just_left_ledge:
+		coyote_timer.start()
+
+
+func handle_jump():
+	# Handle Jump.
+	if is_on_floor() or coyote_timer.time_left > 0.0:
+		if Input.is_action_pressed("Jump"):
+			velocity.y = JUMP_FORCE
+			coyote_timer.stop()
+	
+	# Cutting the jump short after button is released (For variable jump height)
+	if !Input.is_action_pressed("Jump") and velocity.y < 0:
+		velocity.y = 0
+
+
+func handle_gravity(delta):
+	# Add the gravity.
+	if !is_on_floor():
+		velocity.y += gravity * delta
+		is_jumping = true
+	elif is_on_floor():
+		is_jumping = false
+
+
+func handle_movement(direction):
+	if direction != 0:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-	
-	animate_player()
-
-	move_and_slide()
 
 
-func animate_player():
+func handle_animations():
 	if not is_on_floor():
 		animation.play("Jumping")
 	

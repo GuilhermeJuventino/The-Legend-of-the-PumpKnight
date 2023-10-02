@@ -1,9 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1vnkpj61whyq"]
+[gd_scene load_steps=6 format=3 uid="uid://c1vnkpj61whyq"]
 
 [ext_resource type="PackedScene" uid="uid://de45akian8iqb" path="res://player/player.tscn" id="1_gfjnh"]
+[ext_resource type="Texture2D" uid="uid://b56r55vflav1f" path="res://assets/tiles/test_tile.png" id="2_lq4d5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_12ga3"]
 size = Vector2(640, 29)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wbdrc"]
+texture = ExtResource("2_lq4d5")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_lsm8r"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 4
+physics_layer_0/collision_mask = 3
+sources/3 = SubResource("TileSetAtlasSource_wbdrc")
 
 [node name="LevelPreset" type="Node2D"]
 
@@ -18,3 +33,8 @@ shape = SubResource("RectangleShape2D_12ga3")
 
 [node name="Player" parent="." instance=ExtResource("1_gfjnh")]
 position = Vector2(322, 236)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_lsm8r")
+format = 2
+layer_0/tile_data = PackedInt32Array(851968, 3, 0, 851969, 3, 0, 851970, 3, 0, 851971, 3, 0, 851972, 3, 0, 851973, 3, 0, 851974, 3, 0, 851975, 3, 0, 851976, 3, 0, 851977, 3, 0, 851978, 3, 0, 851979, 3, 0, 851980, 3, 0, 851981, 3, 0, 851982, 3, 0, 851983, 3, 0, 851984, 3, 0, 851985, 3, 0, 851986, 3, 0, 851987, 3, 0, 786432, 3, 0, 786433, 3, 0, 786434, 3, 0, 786435, 3, 0, 786436, 3, 0, 786437, 3, 0, 786438, 3, 0, 786439, 3, 0, 786440, 3, 0, 786441, 3, 0, 786442, 3, 0, 786443, 3, 0, 786444, 3, 0, 786445, 3, 0, 786446, 3, 0, 786447, 3, 0, 786448, 3, 0, 786449, 3, 0, 786450, 3, 0, 786451, 3, 0, 720896, 3, 0, 720897, 3, 0, 720898, 3, 0, 720899, 3, 0, 720900, 3, 0, 720901, 3, 0, 720902, 3, 0, 720903, 3, 0, 720904, 3, 0, 720905, 3, 0, 720906, 3, 0, 720907, 3, 0, 720908, 3, 0, 720909, 3, 0, 720910, 3, 0, 720911, 3, 0, 720912, 3, 0, 720913, 3, 0, 720914, 3, 0, 720915, 3, 0, 655360, 3, 0, 655361, 3, 0, 655362, 3, 0, 655363, 3, 0, 655364, 3, 0, 655365, 3, 0, 655366, 3, 0, 655367, 3, 0, 655368, 3, 0, 655369, 3, 0, 655370, 3, 0, 655371, 3, 0, 655372, 3, 0, 655373, 3, 0, 655374, 3, 0, 655375, 3, 0, 655376, 3, 0, 655377, 3, 0, 655378, 3, 0, 655379, 3, 0, 589824, 3, 0, 589825, 3, 0, 589826, 3, 0, 589827, 3, 0, 589828, 3, 0, 589829, 3, 0, 589830, 3, 0, 589831, 3, 0, 589832, 3, 0, 589833, 3, 0, 589834, 3, 0, 589835, 3, 0, 589836, 3, 0, 589837, 3, 0, 589838, 3, 0, 589839, 3, 0, 589840, 3, 0, 589841, 3, 0, 589842, 3, 0, 589843, 3, 0, 524307, 3, 0, 458771, 3, 0, 393235, 3, 0, 327699, 3, 0, 262163, 3, 0, 196627, 3, 0, 524288, 3, 0, 458752, 3, 0, 393216, 3, 0, 327680, 3, 0, 262144, 3, 0, 524290, 3, 0, 524291, 3, 0, 393221, 3, 0, 458754, 3, 0, 524289, 3, 0, 458753, 3, 0, 393217, 3, 0, 524294, 3, 0, 524295, 3, 0, 524299, 3, 0, 524300, 3, 0, 524301, 3, 0, 393230, 3, 0, 393231, 3, 0, 327689, 3, 0, 524305, 3, 0)
