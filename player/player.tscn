@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://de45akian8iqb"]
+
+[ext_resource type="Texture2D" uid="uid://dambthdjof88g" path="res://assets/sprites/PumpKnight/PumpKnight.png" id="1_3xsop"]
+[ext_resource type="Script" path="res://player/player.gd" id="1_sq8y3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_quihv"]
+radius = 6.0
+height = 12.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76lf4"]
+atlas = ExtResource("1_3xsop")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fd3p7"]
+atlas = ExtResource("1_3xsop")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w03kp"]
+atlas = ExtResource("1_3xsop")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4gmk"]
+atlas = ExtResource("1_3xsop")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8y6va"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76lf4")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fd3p7")
+}],
+"loop": true,
+"name": &"Jumping",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w03kp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q4gmk")
+}],
+"loop": true,
+"name": &"Walking",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 6
+script = ExtResource("1_sq8y3")
+
+[node name="HitBox" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_quihv")
+
+[node name="Animation" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8y6va")
+animation = &"Idle"
+autoplay = "Idle"
