@@ -1,11 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://de45akian8iqb"]
+[gd_scene load_steps=10 format=3 uid="uid://de45akian8iqb"]
 
 [ext_resource type="Texture2D" uid="uid://dambthdjof88g" path="res://assets/sprites/PumpKnight/PumpKnight.png" id="1_3xsop"]
 [ext_resource type="Script" path="res://player/player.gd" id="1_sq8y3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_quihv"]
 radius = 6.0
-height = 12.0
+height = 14.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_76lf4"]
 atlas = ExtResource("1_3xsop")
@@ -53,8 +53,11 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ry5ej"]
+size = Vector2(15, 10)
+
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 6
+collision_mask = 8198
 script = ExtResource("1_sq8y3")
 
 [node name="HitBox" type="CollisionShape2D" parent="."]
@@ -67,3 +70,14 @@ autoplay = "Idle"
 
 [node name="CoyoteTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8192
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(-0.5, -2)
+shape = SubResource("RectangleShape2D_ry5ej")
+debug_color = Color(0.976471, 0.0901961, 0.333333, 0.419608)
+
+[connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]

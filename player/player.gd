@@ -41,8 +41,8 @@ func handle_jump():
 			coyote_timer.stop()
 	
 	# Cutting the jump short after button is released (For variable jump height)
-	if !Input.is_action_pressed("Jump") and velocity.y < 0:
-		velocity.y = 0
+	#if !Input.is_action_pressed("Jump") and velocity.y < 0:
+		#velocity.y = 0
 
 
 func handle_gravity(delta):
@@ -75,3 +75,9 @@ func handle_animations():
 		animation.set_flip_h(true)
 	elif velocity.x > 0:
 		animation.set_flip_h(false)
+
+
+func _on_hurt_box_body_entered(body):
+	if body.is_in_group("enemies"):
+		print("Player is dead")
+		self.queue_free()

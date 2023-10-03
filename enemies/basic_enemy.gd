@@ -37,3 +37,8 @@ func handle_movement(delta):
 
 func handle_animations():
 	pass
+
+
+func take_damage(body):
+	body.velocity.y = body.JUMP_FORCE
+	self.queue_free()

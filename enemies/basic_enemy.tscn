@@ -1,9 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bowmjtjjr5c5n"]
+[gd_scene load_steps=5 format=3 uid="uid://bowmjtjjr5c5n"]
 
 [ext_resource type="Script" path="res://enemies/basic_enemy.gd" id="1_p2jnq"]
+[ext_resource type="PackedScene" uid="uid://dft8bbwnwdrvm" path="res://bounce_objects/bounce_area.tscn" id="2_f8dm6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m5466"]
-size = Vector2(12, 13)
+size = Vector2(10, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_orwis"]
+size = Vector2(10, 2)
 
 [node name="BasicEnemy" type="CharacterBody2D"]
 collision_layer = 2
@@ -15,11 +19,18 @@ offset_right = 12.0
 offset_bottom = 13.0
 color = Color(0.372549, 0.101961, 0.439216, 1)
 
-[node name="HitBox" type="CollisionShape2D" parent="."]
-position = Vector2(6, 6.5)
+[node name="HurtBox" type="CollisionShape2D" parent="." groups=["enemies"]]
+position = Vector2(6, 8.5)
 shape = SubResource("RectangleShape2D_m5466")
 
 [node name="RayCast" type="RayCast2D" parent="."]
 position = Vector2(6, 12)
 target_position = Vector2(-8, 0)
 collision_mask = 6
+
+[node name="HitBox" parent="." instance=ExtResource("2_f8dm6")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(6, 1)
+shape = SubResource("RectangleShape2D_orwis")
+debug_color = Color(0.85098, 0.678431, 0, 0.419608)
