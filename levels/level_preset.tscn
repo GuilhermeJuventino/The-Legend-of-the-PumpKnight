@@ -2,9 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://de45akian8iqb" path="res://player/player.tscn" id="1_gfjnh"]
 [ext_resource type="Texture2D" uid="uid://b56r55vflav1f" path="res://assets/tiles/test_tile.png" id="2_lq4d5"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_12ga3"]
-size = Vector2(640, 29)
+[ext_resource type="PackedScene" uid="uid://bowmjtjjr5c5n" path="res://enemies/basic_enemy.tscn" id="3_6macr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wbdrc"]
 texture = ExtResource("2_lq4d5")
@@ -22,17 +20,11 @@ sources/3 = SubResource("TileSetAtlasSource_wbdrc")
 
 [node name="LevelPreset" type="Node2D"]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(10, 311)
-collision_layer = 4
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(310, -4.5)
-shape = SubResource("RectangleShape2D_12ga3")
-
 [node name="Player" parent="." instance=ExtResource("1_gfjnh")]
 position = Vector2(329, 281)
+
+[node name="BasicEnemy" parent="." instance=ExtResource("3_6macr")]
+position = Vector2(294, 275)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_lsm8r")
