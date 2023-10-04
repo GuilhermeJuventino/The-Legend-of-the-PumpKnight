@@ -72,8 +72,8 @@ autoplay = "Idle"
 one_shot = true
 
 [node name="HurtBox" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 8192
+collision_layer = 16384
+collision_mask = 8194
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(-0.5, -2)

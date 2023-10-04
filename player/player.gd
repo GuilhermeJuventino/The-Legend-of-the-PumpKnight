@@ -77,7 +77,7 @@ func handle_animations():
 		animation.set_flip_h(false)
 
 
-func _on_hurt_box_body_entered(body):
+func _on_hurt_box_body_entered(body: CharacterBody2D) -> void:
 	if body.is_in_group("enemies"):
-		print("Player is dead")
+		#print("Player is dead")
 		self.queue_free()
