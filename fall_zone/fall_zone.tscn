@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7w5egtgov0bu"]
+
+[ext_resource type="Script" path="res://fall_zone/fall_zone.gd" id="1_608x3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j0gye"]
+size = Vector2(638, 436)
+
+[node name="FallZone" type="Area2D"]
+collision_layer = 128
+script = ExtResource("1_608x3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(309, 208)
+shape = SubResource("RectangleShape2D_j0gye")
+debug_color = Color(0.623529, 0.109804, 0.137255, 0.419608)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

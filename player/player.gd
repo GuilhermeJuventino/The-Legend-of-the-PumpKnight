@@ -86,12 +86,10 @@ func handle_animations():
 
 
 func take_damage():
-	self.queue_free()
-	#get_tree().reload_current_scene()
+	get_tree().reload_current_scene()
 
 
 func _on_hurt_box_body_entered(body: CharacterBody2D) -> void:
 	if body.is_in_group("enemies"):
-		#print("Player is dead")
-		self.queue_free()
-		#take_damage()
+		get_tree().reload_current_scene()
+		

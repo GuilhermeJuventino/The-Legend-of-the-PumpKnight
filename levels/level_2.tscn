@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://5sfxedtvqe0h"]
+
+[ext_resource type="PackedScene" uid="uid://4v6f2toxoc60" path="res://levels/level.tscn" id="1_sgbw5"]
+[ext_resource type="PackedScene" uid="uid://bowmjtjjr5c5n" path="res://enemies/basic_enemy.tscn" id="2_amm3u"]
+[ext_resource type="PackedScene" uid="uid://d0tp5uadd81fb" path="res://door/door.tscn" id="2_eg68a"]
+
+[node name="Level_2" instance=ExtResource("1_sgbw5")]
+
+[node name="Door" parent="." index="1" instance=ExtResource("2_eg68a")]
+position = Vector2(590, 272)
+
+[node name="Player" parent="." index="2"]
+position = Vector2(53, 272)
+
+[node name="BasicEnemy" parent="." index="3" instance=ExtResource("2_amm3u")]
+position = Vector2(497, 177)
+
+[node name="TileMap" parent="." index="4"]
+layer_0/tile_data = PackedInt32Array(589824, 196608, 4, 589825, 196608, 4, 589826, 196608, 4, 589827, 196608, 4, 589830, 196608, 4, 589831, 196608, 4, 589832, 196608, 4, 589834, 196608, 4, 589837, 196608, 4, 589838, 196608, 4, 589839, 196608, 4, 589840, 196608, 4, 589841, 196608, 4, 589842, 196608, 4, 589843, 196608, 4, 458771, 196608, 4, 393235, 196608, 4, 327699, 196608, 4, 262163, 196608, 4, 196627, 196608, 4, 262144, 196608, 4, 327680, 196608, 4, 393216, 196608, 4, 458752, 196608, 4, 524288, 196608, 4, 524307, 196608, 4, 196608, 196608, 4, 131072, 196608, 4, 65536, 196608, 4, 0, 196608, 4, 131091, 196608, 4, 65555, 196608, 4, 19, 196608, 4, 262157, 196608, 4, 262158, 196608, 4, 262159, 196608, 4, 393229, 196608, 4, 393230, 196608, 4, 327696, 196608, 4, 393231, 196608, 4, 262160, 196608, 4, 393232, 196608, 4, 589829, 196608, 4, 589836, 196608, 4, 327693, 196608, 4)
+
+[node name="Spikes" parent="." index="5"]
+layer_0/tile_data = PackedInt32Array(589828, 196609, 3, 393234, 131073, 4, 327698, 131073, 4, 589833, 196609, 3, 589835, 196609, 3)
