@@ -25,6 +25,14 @@ func _physics_process(delta):
 	handle_animations()
 	
 	var was_on_floor = is_on_floor()
+	
+	# Checking if the player collided with a spike and calling the take_damage function
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		if collision:
+			if collision.get_collider().name == "Spikes":
+				take_damage()
+	
 	move_and_slide()
 	
 	# Starting coyote timer after the player just left a ledge
@@ -77,7 +85,13 @@ func handle_animations():
 		animation.set_flip_h(false)
 
 
+func take_damage():
+	self.queue_free()
+	#get_tree().reload_current_scene()
+
+
 func _on_hurt_box_body_entered(body: CharacterBody2D) -> void:
 	if body.is_in_group("enemies"):
 		#print("Player is dead")
 		self.queue_free()
+		#take_damage()
