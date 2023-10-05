@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 var speed = 700.0
 
+@onready var animation: AnimatedSprite2D = $Animation
 @onready var ray_cast: RayCast2D = $RayCast
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -36,7 +37,10 @@ func handle_movement(delta):
 
 
 func handle_animations():
-	pass
+	if velocity.x > 0:
+		animation.set_flip_h(true)
+	elif velocity.x < 0:
+		animation.set_flip_h(false)
 
 
 func take_damage(body):
