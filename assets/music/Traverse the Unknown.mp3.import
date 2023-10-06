@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://com2mhbt1w4xd"
+path="res://.godot/imported/Traverse the Unknown.mp3-1b6285a7d95b88bc79d2ce519272ef52.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Traverse the Unknown.mp3"
+dest_files=["res://.godot/imported/Traverse the Unknown.mp3-1b6285a7d95b88bc79d2ce519272ef52.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

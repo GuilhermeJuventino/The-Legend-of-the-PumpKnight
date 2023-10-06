@@ -1,6 +1,8 @@
 extends Area2D
 
 const FILE_BEGIN = "res://levels/level_"
+#@onready var level_clear_sound: AudioStreamPlayer = $LevelClearSound
+
 
 
 func _on_body_entered(body):
@@ -12,4 +14,6 @@ func _on_body_entered(body):
 		
 		var next_level_path = FILE_BEGIN + str(next_level_number) + ".tscn"
 		
+		#level_clear_sound.play()
+		SoundController.play()
 		get_tree().change_scene_to_file(next_level_path)

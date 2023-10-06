@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://b07nvch47mcxb"]
+
+[ext_resource type="Script" path="res://sound_controller/sound_controller.gd" id="1_da7sp"]
+[ext_resource type="AudioStream" uid="uid://com2mhbt1w4xd" path="res://assets/music/Traverse the Unknown.mp3" id="1_x8c8x"]
+[ext_resource type="AudioStream" uid="uid://dexsi8y0fa5m8" path="res://assets/sound_effects/Level Up 1.wav" id="2_1ocgn"]
+
+[node name="SoundController" type="Node2D"]
+script = ExtResource("1_da7sp")
+
+[node name="BgMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_x8c8x")
+volume_db = -17.801
+autoplay = true
+
+[node name="LevelClearSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_1ocgn")
+volume_db = -22.422

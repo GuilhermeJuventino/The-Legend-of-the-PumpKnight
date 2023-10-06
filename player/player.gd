@@ -10,6 +10,7 @@ var is_jumping: bool = false
 
 @onready var animation: AnimatedSprite2D = $Animation
 @onready var coyote_timer: Timer = $CoyoteTimer
+@onready var jump_sound: AudioStreamPlayer = $JumpSoundEffect
 
 
 func _physics_process(delta):
@@ -45,13 +46,10 @@ func handle_jump():
 	# Handle Jump.
 	if is_on_floor() or coyote_timer.time_left > 0.0:
 		if Input.is_action_pressed("Jump"):
+			jump_sound.play()
 			velocity.y = JUMP_FORCE
 			coyote_timer.stop()
 	
-	# Cutting the jump short after button is released (For variable jump height)
-	#if !Input.is_action_pressed("Jump") and velocity.y < 0:
-		#velocity.y = 0
-
 
 func handle_gravity(delta):
 	# Add the gravity.
