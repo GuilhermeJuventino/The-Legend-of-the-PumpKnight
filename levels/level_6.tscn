@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4ke5410fxhkk"]
+
+[ext_resource type="PackedScene" uid="uid://4v6f2toxoc60" path="res://levels/level.tscn" id="1_a24yn"]
+
+[node name="Level_6" instance=ExtResource("1_a24yn")]
+
+[node name="ThanksForPlaying" type="RichTextLabel" parent="." index="1"]
+offset_left = 223.0
+offset_top = 141.0
+offset_right = 426.0
+offset_bottom = 181.0
+text = "    Thank you for playing"
+
+[node name="Player" parent="." index="2"]
+position = Vector2(44, 272)

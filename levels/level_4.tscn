@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cghdc7fsvcflc"]
+
+[ext_resource type="PackedScene" uid="uid://4v6f2toxoc60" path="res://levels/level.tscn" id="1_a2d8y"]
+[ext_resource type="PackedScene" uid="uid://bowmjtjjr5c5n" path="res://enemies/basic_enemy.tscn" id="2_e2ia5"]
+[ext_resource type="PackedScene" uid="uid://b7w5egtgov0bu" path="res://fall_zone/fall_zone.tscn" id="2_jd8d6"]
+[ext_resource type="PackedScene" uid="uid://d0tp5uadd81fb" path="res://door/door.tscn" id="2_sewvc"]
+
+[node name="Level_4" instance=ExtResource("1_a2d8y")]
+
+[node name="Door" parent="." index="1" instance=ExtResource("2_sewvc")]
+position = Vector2(593, 271)
+
+[node name="Player" parent="." index="2"]
+position = Vector2(47, 272)
+
+[node name="BasicEnemy" parent="." index="3" instance=ExtResource("2_e2ia5")]
+position = Vector2(306, 208)
+
+[node name="BasicEnemy2" parent="." index="4" instance=ExtResource("2_e2ia5")]
+position = Vector2(403, 144)
+
+[node name="TileMap" parent="." index="5"]
+layer_0/tile_data = PackedInt32Array(589824, 196608, 4, 589825, 196608, 4, 589826, 196608, 4, 589827, 196608, 4, 589828, 196608, 4, 589830, 196608, 4, 589831, 196608, 4, 589832, 196608, 4, 589833, 196608, 4, 589834, 196608, 4, 589835, 196608, 4, 589836, 196608, 4, 589837, 196608, 4, 589840, 196608, 4, 589842, 196608, 4, 589843, 196608, 4, 458771, 196608, 4, 393235, 196608, 4, 327699, 196608, 4, 262163, 196608, 4, 196627, 196608, 4, 262144, 196608, 4, 327680, 196608, 4, 393216, 196608, 4, 458752, 196608, 4, 524288, 196608, 4, 524307, 196608, 4, 196608, 196608, 4, 131072, 196608, 4, 65536, 196608, 4, 0, 196608, 4, 131091, 196608, 4, 65555, 196608, 4, 19, 196608, 4, 524295, 196608, 4, 458760, 196608, 4, 458761, 196608, 4, 393226, 196608, 4, 327691, 196608, 4, 327692, 196608, 4, 393227, 196608, 4, 393228, 196608, 4, 458762, 196608, 4, 458763, 196608, 4, 458764, 196608, 4, 524296, 196608, 4, 524297, 196608, 4, 524298, 196608, 4, 524299, 196608, 4, 524300, 196608, 4, 589838, 196608, 4, 589841, 196608, 4)
+
+[node name="Spikes" parent="." index="6"]
+layer_0/tile_data = PackedInt32Array(589839, 196609, 3)
+
+[node name="FallZone" parent="." index="7" instance=ExtResource("2_jd8d6")]
+position = Vector2(12, 331)
